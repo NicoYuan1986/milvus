@@ -65,7 +65,8 @@ pipeline {
                                               make_cmd: "make clean && make jobs=8 install use_disk_index=ON",
                                               images: '["milvus","pytest","helm"]',
                                               tekton_log_timeout: '30m',
-                                              milvus_repo_owner: 'NicoYuan1986'
+                                              milvus_repo_owner: 'NicoYuan1986',
+                                              git_url: 'https://github.com/NicoYuan1986/milvus.git'
 
                         milvus_image_tag = tekton.query_result job_name, 'milvus-image-tag'
                         pytest_image =  tekton.query_result job_name, 'pytest-image-fqdn'
