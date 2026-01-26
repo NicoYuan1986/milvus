@@ -64,7 +64,8 @@ pipeline {
                                               suppress_suffix_of_image_tag: true,
                                               make_cmd: "make clean && make jobs=8 install use_disk_index=ON",
                                               images: '["milvus","pytest","helm"]',
-                                              tekton_log_timeout: '30m'
+                                              tekton_log_timeout: '30m',
+                                              milvus_repo: 'NicoYuan1986/milvus'
 
                         milvus_image_tag = tekton.query_result job_name, 'milvus-image-tag'
                         pytest_image =  tekton.query_result job_name, 'pytest-image-fqdn'
